@@ -1,6 +1,6 @@
 # Nom du Projet
 
-![Bannière du Projet](lien-vers-image)  
+![Bannière du Projet](lien-vers-image)
 
 ## 🚀 Description
 
@@ -22,22 +22,22 @@ Brève description du projet. Quel est son objectif ? Qui est-il destiné à aid
 
 ## 📦 Installation
 
-1. **Cloner le dépôt :**  
-   ```bash
-   git clone https://github.com/VotreNomUtilisateur/VotreRepo.git
-   ```
-2. **Se rendre dans le dossier du projet :**  
-   ```bash
-   cd nom-du-projet
-   ```
-3. **Installer les dépendances :**  
-   ```bash
-   npm install
-   ```
-4. **Lancer le projet :**  
-   ```bash
-   npm start
-   ```
+1. **Cloner le dépôt :**
+    ```bash
+    git clone https://github.com/VotreNomUtilisateur/VotreRepo.git
+    ```
+2. **Se rendre dans le dossier du projet :**
+    ```bash
+    cd nom-du-projet
+    ```
+3. **Installer les dépendances :**
+    ```bash
+    npm install
+    ```
+4. **Lancer le projet :**
+    ```bash
+    npm start
+    ```
 
 ## 🛠 Fonctionnalités
 
@@ -72,4 +72,5 @@ Pour toute question, contactez-moi :
 - **GitHub :** [Maxime422](https://github.com/Maxime422)
 
 ---
+
 Fait avec ❤️ par [Maxime Germis](https://github.com/Maxime422)

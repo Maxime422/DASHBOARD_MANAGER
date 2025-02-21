@@ -3,28 +3,267 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Integra</title>
 
-		<meta name="description" content="..." />
+		<meta name="description" content="Integra est une plateforme tout-en-un qui combine gestion de tâches, suivi d'informations importantes (météo, finances, calendrier), et outils de productivité inspiré. L’objectif est de rassembler toutes vos ressources au même endroit pour simplifier votre organisation." />
 		<meta name="author" content="Maxime Germis" />
 
-        <link rel="icon" type="image/png" sizes="76x76" href="..." />
+		<link rel="icon" type="image/png" sizes="76x76" href="IMG/LOGO_INTEGRA_256.png" />
 
 		<link rel="stylesheet" href="CSS/variables.css" />
 		<link rel="stylesheet" href="CSS/style.css" />
+		<link id="mode" rel="stylesheet" href="CSS/dark-mode.css" />
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-			rel="stylesheet"
-		/>
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
-		<script src="script.js" defer></script>
+		<script src="JS/script.js" defer></script>
 	</head>
 
-	<body></body>
+	<body>
+		<!-- Header -->
+		<header class="container">
+			<div id="headerPage">
+				<a href="./index.html">
+					<div>
+						<i class="fa-solid fa-square-arrow-up-right"></i>
+					</div>
+					<span>Integra</span>
+				</a>
+
+				<!-- Navigation -->
+				<nav>
+					<ul>
+						<li><a href="index.html">Dashboard</a></li>
+						<li><a href="maps.html">Maps</a></li>
+						<li><a href="alimentation.html">Alimentation</a></li>
+						<li><a href="compte.html">Statistiques</a></li>
+					</ul>
+				</nav>
+
+				<!-- Icons and profile -->
+				<div>
+					<button id="darkLightMode"><i class="fa-solid fa-moon"></i></button>
+					<a href="search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+					<div>
+						<img class="profilePicture" src="IMG/warren-VVEwJJRRHgk-unsplash.jpg" width="64px" alt="Profile picture img" />
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Main -->
+		<main class="container">
+			<!-- Section zf / Informations -->
+			<section id="sectionPrimary">
+				<!-- Aside Nav -->
+				<aside id="asideNav">
+					<header>
+						<span class="secondaryText">Bonjour,</span>
+						<h1>Maxime</h1>
+						<span class="secondaryText">citation du jour</span>
+						<p>citation random, Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					</header>
+					<nav>
+						<ul>
+							<li>
+								<button class="active">
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Dashboard</span>
+								</button>
+							</li>
+							<li>
+								<button>
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Dashboard</span>
+								</button>
+							</li>
+							<li>
+								<button>
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Dashboard</span>
+								</button>
+							</li>
+							<li>
+								<button>
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Dashboard</span>
+								</button>
+							</li>
+							<li>
+								<button>
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Dashboard</span>
+								</button>
+							</li>
+							<li>
+								<button>
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Dashboard</span>
+								</button>
+							</li>
+							<li>
+								<button>
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Dashboard</span>
+								</button>
+							</li>
+
+							<li>
+								<button>
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Dashboard</span>
+								</button>
+							</li>
+						</ul>
+					</nav>
+				</aside>
+
+				<!-- SubSections / Weather -->
+				<div class="subSection">
+					<header>
+						<h2>Météo</h2>
+						<i class="fa-solid fa-circle-info"></i>
+					</header>
+					<div class="dataTime">
+						<span>Vendredi</span>
+						<span>20 février 2025</span>
+						<span class="tempTime">10:32:02</span>
+					</div>
+				</div>
+
+				<div class="subSection">
+					<header>
+						<h2>Météo</h2>
+						<i class="fa-solid fa-circle-info"></i>
+					</header>
+					<div class="containerWeather">
+						<div class="cloud front">
+							<span class="left-front"></span>
+							<span class="right-front"></span>
+						</div>
+						<span class="sun sunshine"></span>
+						<span class="sun"></span>
+						<div class="cloud back">
+							<span class="left-back"></span>
+							<span class="right-back"></span>
+						</div>
+					</div>
+
+					<div class="card-header">
+						<span class="bold" id="city">Arles</span>
+						<span class="bold" id="country">France</span>
+						<span class="secondaryText" id="date">March 13</span>
+						<div>
+							<span class="tempWeather">23°</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- SubSections / Date and Planning -->
+				<div class="subSection">
+					<header>
+						<h2>Date</h2>
+						<i class="fa-solid fa-circle-info"></i>
+					</header>
+					<div></div>
+				</div>
+			</section>
+
+			<!-- Secondary Section -->
+			<section id="sectionSecondary">
+				<!-- SubSections / Notations -->
+				<div class="subSection">
+					<header>
+						<h2>Assistant de tâche</h2>
+						<i class="fa-solid fa-circle-info"></i>
+					</header>
+
+					<!-- Form for Tasks -->
+					<form>
+						<!-- Title -->
+						<label for="title">Titre</label>
+						<input type="text" name="title" id="title" placeholder="Titre" required minlength="10" maxlength="20" />
+
+						<!-- List -->
+						<label for="categoriesList">Catégorie</label>
+						<input list="categoriesList" id="categories" placeholder="catégories" />
+						<datalist id="categoriesList">
+							<option value="Administratif"></option>
+							<option value="Développement web"></option>
+							<option value="Designs"></option>
+							<option value="Anglais"></option>
+						</datalist>
+
+						<!-- Sub-Title -->
+						<label for="subTitle">Sous-Titre</label>
+						<input type="text" name="subTitle" id="subTitle" placeholder="Sous-Titre" />
+
+						<!-- Date -->
+						<label for="addDate">Date</label>
+						<input type="date" name="addDate" id="addDate" />
+
+						<!-- Description -->
+						<label for="description">Description</label>
+						<textarea name="description" id="description" placeholder="Décrivez la tâche ici" required minlength="10" maxlength="80"></textarea>
+
+						<!-- Buttons -->
+						<div>
+							<button type="reset" class="cta">Réinitialiser</button>
+							<button type="submit" class="cta ctaPrimary">Envoyer</button>
+						</div>
+					</form>
+				</div>
+				<!-- SubSections / Tasks -->
+				<div class="subSection">
+					<header>
+						<h2>Liste des tâches</h2>
+						<i class="fa-solid fa-circle-info"></i>
+					</header>
+					<div class="grid"></div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer and Nav -->
+		<footer class="container">
+			<!-- Logo -->
+			<div id="footerPage">
+				<a href="./index.html">
+					<div>
+						<i class="fa-solid fa-square-arrow-up-right"></i>
+					</div>
+					<span>Integra</span>
+				</a>
+
+				<!-- Navigation -->
+				<nav>
+					<ul>
+						<li><a href="index.html">Dashboard</a></li>
+						<li><a href="maps.html">Maps</a></li>
+						<li><a href="alimentation.html">Alimentation</a></li>
+						<li><a href="compte.html">Statistiques</a></li>
+					</ul>
+				</nav>
+
+				<!-- Terms and conditions -->
+
+				<div>
+					<a href="#">
+						<span>© 2025 Integra</span>
+					</a>
+					<button>Français (FR)</button>
+					<div>
+						<a href="www.linkedin.com/in/maxime-germis"><i class="fa-brands fa-linkedin"></i></a>
+						<a href="https://www.instagram.com/maxime19393/"><i class="fa-brands fa-square-instagram"></i></a>
+						<a href="https://github.com/Maxime422"><i class="fa-brands fa-github"></i></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
 	<script>
 		window.addEventListener('load', () => {
 			if ('serviceWorker' in navigator) {

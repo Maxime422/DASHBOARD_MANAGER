@@ -5,38 +5,6 @@
 	--font-weight-extra-bold: 700;
 	--font-weight-black: 800;
 
-	/* Couleurs */
-	--color-blue: #1327b7;
-	--color-blue-1: #1b41e9;
-	--color-blue-2: #3d4fd1;
-	--color-blue-3: #697af3;
-
-	--color-white: #fafafa;
-	--color-white-1: #eeedf4;
-	--color-white-2: #dedeeb;
-
-	--color-gray: #d4d4d4;
-	--color-gray-1: #adadad;
-
-	--color-black: #131313;
-	--color-black-1: #1c1b1f;
-	--color-black-2: #434141;
-
-	--color-red: #b5403c;
-	--color-red-1: #d62038;
-	--color-red-2: #991022;
-
-	--color-green: #11b86a;
-	--color-green-1: #23a166;
-	--color-green-2: #3ad98f;
-
-	--color-orange: #f88a0c;
-	--color-orange-1: #d68120;
-	--color-orange-2: #e8a04d;
-	--color-orange-3: #e5ae6f;
-
-	--border-gray: rgba(255, 255, 255, 0.171);
-
 	/* Tailles de texte */
 	--text-size-small: 0.8rem;
 	--text-size-medium: 1rem;
@@ -58,6 +26,7 @@
 	--margin-left-right-large: 2rem 0;
 	--margin-extra: 4rem;
 	--margin-left-right-extra: 4rem 0;
+	--marrgin-top-bottom-small: 1rem 0;
 
 	--padding-small: 0.5rem;
 	--padding-left-right-small: 0.5rem 0;
@@ -67,6 +36,8 @@
 	--padding-left-right-large: 2rem 0;
 	--padding-extra: 4rem;
 	--padding-left-right-extra: 4rem 0;
+	--padding-top-bottom-large: 2rem 0;
+	--padding-top-bottom-extra: 4rem 0;
 
 	--gap-small: 0.5rem;
 	--gap-medium: 1rem;
@@ -100,13 +71,16 @@ button {
 }
 
 /* Gestion des fonts */
-h1 {
+h1,
+.tempTime,
+.tempWeather {
 	font-size: var(--text-size-extra);
 	font-weight: var(--font-weight-black);
 }
 
 h2,
-i {
+i,
+.bold {
 	font-size: var(--text-size-medium);
 	font-weight: var(--font-weight-extra-bold);
 }
@@ -121,4 +95,31 @@ span,
 p {
 	font-size: var(--text-size-small);
 	font-weight: var(--font-weight-bold);
+}
+
+.secondaryText {
+	font-size: var(--text-size-small);
+	color: var(--color-gray);
+}
+
+.cta {
+	display: flex;
+	padding: var(--padding-small);
+	gap: var(--gap-small);
+	border-radius: var(--border-radius-small);
+	transition: 0.2s;
+	border: var(--color-black-2) solid 1px;
+}
+
+.cta:hover {
+	background-color: var(--color-black-2);
+}
+
+.ctaPrimary,
+.active {
+	background-color: var(--color-green);
+}
+
+.ctaPrimary:hover {
+	background-color: var(--color-green-1);
 }
