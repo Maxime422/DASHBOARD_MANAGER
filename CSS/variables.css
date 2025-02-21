@@ -97,29 +97,17 @@ p {
 	font-weight: var(--font-weight-bold);
 }
 
-.secondaryText {
-	font-size: var(--text-size-small);
-	color: var(--color-gray);
-}
 
-.cta {
-	display: flex;
-	padding: var(--padding-small);
-	gap: var(--gap-small);
-	border-radius: var(--border-radius-small);
-	transition: 0.2s;
-	border: var(--color-black-2) solid 1px;
-}
-
-.cta:hover {
-	background-color: var(--color-black-2);
-}
-
-.ctaPrimary,
-.active {
+/* Variables colors */
+.green {
 	background-color: var(--color-green);
 }
 
-.ctaPrimary:hover {
+.green:hover {
 	background-color: var(--color-green-1);
+}
+
+.secondaryText {
+	font-size: var(--text-size-small);
+	color: var(--color-gray);
 }

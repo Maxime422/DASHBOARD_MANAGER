@@ -1,3 +1,81 @@
+/* Couleurs */
+:root {
+	--color-blue: #1327b7;
+	--color-blue-1: #1b41e9;
+	--color-blue-2: #3d4fd1;
+	--color-blue-3: #697af3;
+
+	--color-white: #fafafa;
+	--color-white-1: #eeedf4;
+	--color-white-2: #dedeeb;
+
+	--color-gray: #d4d4d4;
+	--color-gray-1: #adadad;
+
+	--color-black: #131313;
+	--color-black-1: #111113;
+	--color-black-2: #434141;
+
+	--color-red: #b5403c;
+	--color-red-1: #d62038;
+	--color-red-2: #991022;
+
+	--color-green: #11b86a;
+	--color-green-1: #23a166;
+	--color-green-2: #3ad98f;
+
+	--color-orange: #f88a0c;
+	--color-orange-1: #d68120;
+	--color-orange-2: #e8a04d;
+	--color-orange-3: #e5ae6f;
+
+	--border-gray: rgba(255, 255, 255, 0.171);
+
+	--font-main: 'Montserrat', sans-serif;
+	--font-weight-bold: 600;
+	--font-weight-extra-bold: 700;
+	--font-weight-black: 800;
+
+	/* Tailles de texte */
+	--text-size-small: 0.8rem;
+	--text-size-medium: 1rem;
+	--text-size-large: 1.5rem;
+	--text-size-extra: 2.5rem;
+
+	/* Bordures */
+	--border-radius-small: 0.5rem;
+	--border-radius-medium: 1rem;
+	--border-radius-big: 2rem;
+	--border-radius-circle: 100%;
+
+	/* Les marges et espacements */
+	--margin-small: 0.5rem;
+	--margin-left-right-small: 0.5rem 0;
+	--margin-medium: 1rem;
+	--margin-left-right-medium: 1rem 0;
+	--margin-large: 2rem;
+	--margin-left-right-large: 2rem 0;
+	--margin-extra: 4rem;
+	--margin-left-right-extra: 4rem 0;
+	--marrgin-top-bottom-small: 1rem 0;
+
+	--padding-small: 0.5rem;
+	--padding-left-right-small: 0.5rem 0;
+	--padding-medium: 1rem;
+	--padding-left-right-medium: 1rem 0;
+	--padding-large: 2rem;
+	--padding-left-right-large: 2rem 0;
+	--padding-extra: 4rem;
+	--padding-left-right-extra: 4rem 0;
+	--padding-top-bottom-large: 2rem 0;
+	--padding-top-bottom-extra: 4rem 0;
+
+	--gap-small: 0.5rem;
+	--gap-medium: 1rem;
+	--gap-large: 2rem;
+	--gap-extra: 4rem;
+}
+
 /* Code utile à partir d'ici !!!!!!*/
 
 .container {
@@ -31,7 +109,12 @@
 #headerPage ul {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	gap: var(--gap-large);
+}
+
+#headerPage li:hover {
+	background-color: var(--color-green);
 }
 
 #headerPage > div {
@@ -67,6 +150,13 @@ main {
 	border: var(--color-black-2) solid 1px;
 }
 
+/* SubSection */
+.subSection {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
 /* SectionPrimary Grid */
 #sectionPrimary {
 	display: grid;
@@ -94,22 +184,32 @@ main {
 	width: 100%;
 }
 
-/* Actions buttons */
-#asideNav button,
-#sectionSecondary .subSection form input,
-#sectionSecondary .subSection form textarea {
+/* Actions buttons and interactions buttons */
+button,
+input,
+textarea,
+#headerPage li {
 	display: flex;
 	box-sizing: border-box;
 	justify-content: center;
-	width: 100%;
-	border: var(--color-black-2) solid 1px;
 	gap: var(--gap-small);
 	padding: var(--padding-small);
 	border-radius: var(--border-radius-small);
 	transition: 0.2s;
 }
 
-#asideNav ul button:hover,
+#asideNav button {
+	width: 100%;
+}
+
+/* Ajouter des border pour tous les boutons saufs les li */
+main button,
+input,
+textarea {
+	border: var(--color-black-2) solid 1px;
+}
+
+main button:hover,
 #sectionSecondary .subSection form input:hover,
 #sectionSecondary .subSection form textarea:hover {
 	background-color: var(--color-black-2);
@@ -129,11 +229,10 @@ main {
 }
 
 /* Wheather animation */
-.subSection:nth-child(3) {
+.subSection:nth-of-type(3) {
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	background-color: var(--color-black-2);
 }
 
 .subSection .containerWeather {
@@ -141,7 +240,7 @@ main {
 	height: 250px;
 	position: absolute;
 	right: -35px;
-	top: -50px;
+	top: -40px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -250,7 +349,7 @@ main {
 	}
 }
 
-.subSection .card-header {
+.subSection .cardHeader {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -258,7 +357,7 @@ main {
 	height: 100%;
 }
 
-.subSection .card-header div {
+.subSection .cardHeader div {
 	padding-top: var(--padding-medium);
 	justify-self: flex-end;
 }
@@ -273,7 +372,11 @@ main {
 #sectionSecondary .subSection form {
 	display: flex;
 	flex-direction: column;
-	gap: var(--marrgin-top-bottom-small);
+	gap: var(--gap-small);
+}
+
+#sectionSecondary .subSection label {
+	padding-top: var(--padding-medium);
 }
 
 #sectionSecondary .subSection form input,
@@ -281,6 +384,7 @@ main {
 	background-color: transparent;
 	justify-content: flex-start;
 	min-width: 100%;
+	max-width: 100%;
 }
 
 #sectionSecondary .subSection form div {

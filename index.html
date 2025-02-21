@@ -20,6 +20,9 @@
 		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
 		<script src="JS/script.js" defer></script>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	</head>
 
 	<body>
@@ -69,7 +72,7 @@
 					<nav>
 						<ul>
 							<li>
-								<button class="active">
+								<button class="green">
 									<i class="fa-solid fa-circle-info"></i>
 									<span>Dashboard</span>
 								</button>
@@ -124,20 +127,22 @@
 				<!-- SubSections / Weather -->
 				<div class="subSection">
 					<header>
-						<h2>Météo</h2>
-						<i class="fa-solid fa-circle-info"></i>
+						<h2>Horloge</h2>
+						<i class="fa-solid fa-clock"></i>
 					</header>
-					<div class="dataTime">
-						<span>Vendredi</span>
-						<span>20 février 2025</span>
-						<span class="tempTime">10:32:02</span>
+					<div class="cardHeader">
+						<span class="bold">Vendredi</span>
+						<span class="bold">20 février 2025</span>
+						<div>
+							<span class="tempTime">10:32:02</span>
+						</div>
 					</div>
 				</div>
 
 				<div class="subSection">
 					<header>
 						<h2>Météo</h2>
-						<i class="fa-solid fa-circle-info"></i>
+						<i class="fa-solid fa-temperature-half"></i>
 					</header>
 					<div class="containerWeather">
 						<div class="cloud front">
@@ -152,12 +157,11 @@
 						</div>
 					</div>
 
-					<div class="card-header">
+					<div class="cardHeader">
 						<span class="bold" id="city">Arles</span>
 						<span class="bold" id="country">France</span>
-						<span class="secondaryText" id="date">March 13</span>
 						<div>
-							<span class="tempWeather">23°</span>
+							<span class="tempWeather">23°c</span>
 						</div>
 					</div>
 				</div>
@@ -184,11 +188,11 @@
 					<!-- Form for Tasks -->
 					<form>
 						<!-- Title -->
-						<label for="title">Titre</label>
+						<label for="title" class="secondaryText">Titre</label>
 						<input type="text" name="title" id="title" placeholder="Titre" required minlength="10" maxlength="20" />
 
 						<!-- List -->
-						<label for="categoriesList">Catégorie</label>
+						<label for="categoriesList" class="secondaryText">Catégorie</label>
 						<input list="categoriesList" id="categories" placeholder="catégories" />
 						<datalist id="categoriesList">
 							<option value="Administratif"></option>
@@ -198,21 +202,21 @@
 						</datalist>
 
 						<!-- Sub-Title -->
-						<label for="subTitle">Sous-Titre</label>
+						<label for="subTitle" class="secondaryText">Sous-Titre</label>
 						<input type="text" name="subTitle" id="subTitle" placeholder="Sous-Titre" />
 
 						<!-- Date -->
-						<label for="addDate">Date</label>
+						<label for="addDate" class="secondaryText">Date</label>
 						<input type="date" name="addDate" id="addDate" />
 
 						<!-- Description -->
-						<label for="description">Description</label>
+						<label for="description" class="secondaryText">Description</label>
 						<textarea name="description" id="description" placeholder="Décrivez la tâche ici" required minlength="10" maxlength="80"></textarea>
 
 						<!-- Buttons -->
 						<div>
-							<button type="reset" class="cta">Réinitialiser</button>
-							<button type="submit" class="cta ctaPrimary">Envoyer</button>
+							<button type="reset">Réinitialiser</button>
+							<button type="submit" class="green">Envoyer</button>
 						</div>
 					</form>
 				</div>
@@ -263,12 +267,12 @@
 				</div>
 			</div>
 		</footer>
+		<script>
+			window.addEventListener('load', () => {
+				if ('serviceWorker' in navigator) {
+					navigator.serviceWorker.register('service-worker.js');
+				}
+			});
+		</script>
 	</body>
-	<script>
-		window.addEventListener('load', () => {
-			if ('serviceWorker' in navigator) {
-				navigator.serviceWorker.register('service-worker.js');
-			}
-		});
-	</script>
 </html>
