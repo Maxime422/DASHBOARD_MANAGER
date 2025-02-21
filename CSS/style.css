@@ -57,7 +57,9 @@
 	--margin-left-right-large: 2rem 0;
 	--margin-extra: 4rem;
 	--margin-left-right-extra: 4rem 0;
-	--marrgin-top-bottom-small: 1rem 0;
+	--marrgin-top-bottom-small: 0.5rem 0;
+	--marrgin-top-bottom-medium: 1rem 0;
+	--marrgin-top-bottom-large: 2rem 0;
 
 	--padding-small: 0.5rem;
 	--padding-left-right-small: 0.5rem 0;
@@ -90,7 +92,7 @@
 	justify-content: space-between;
 	gap: var(--gap-medium);
 	align-items: center;
-	margin: var(--marrgin-top-bottom-small);
+	margin: var(--marrgin-top-bottom-medium);
 }
 
 /* Logo */
@@ -143,7 +145,9 @@ main {
 #headerPage,
 #asideNav,
 .subSection,
-#footerPage {
+#footerPage,
+.grid section,
+.grid section article {
 	padding: var(--padding-medium);
 	background-color: var(--color-black-1);
 	border-radius: var(--border-radius-medium);
@@ -161,7 +165,7 @@ main {
 #sectionPrimary {
 	display: grid;
 	gap: var(--gap-medium);
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 2fr 1fr;
 	grid-template-rows: 1fr 2fr;
 }
 
@@ -173,7 +177,8 @@ main {
 	gap: var(--gap-large);
 }
 
-#asideNav h1 {
+#asideNav h1,
+.subSection>header {
 	padding-bottom: var(--padding-medium);
 }
 
@@ -220,12 +225,12 @@ main button:hover,
 	background-color: var(--color-green);
 }
 
-.subSection header {
+.subSection>header,
+.grid article header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: var(--gap-medium);
-	padding-bottom: var(--padding-medium);
 }
 
 /* Wheather animation */
@@ -349,7 +354,7 @@ main button:hover,
 	}
 }
 
-.subSection .cardHeader {
+.cardHeader {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -366,13 +371,14 @@ main button:hover,
 #sectionSecondary {
 	display: grid;
 	gap: var(--gap-medium);
-	grid-template-columns: 1fr 2fr;
+	grid-template-columns: 1fr 3fr;
 }
 
 #sectionSecondary .subSection form {
 	display: flex;
 	flex-direction: column;
 	gap: var(--gap-small);
+	height: 100%;
 }
 
 #sectionSecondary .subSection label {
@@ -383,12 +389,44 @@ main button:hover,
 #sectionSecondary .subSection form textarea {
 	background-color: transparent;
 	justify-content: flex-start;
+}
+
+#sectionSecondary .subSection form textarea {
 	min-width: 100%;
-	max-width: 100%;
+	max-width: 30rem;
+	flex: 1;
 }
 
 #sectionSecondary .subSection form div {
 	display: flex;
 	justify-content: flex-end;
 	gap: var(--gap-medium);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: var(--gap-medium);
+	overflow: hidden;
+}
+
+.grid section {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	gap: var(--gap-medium);
+}
+
+/* Articles */
+.grid section article {
+	background-color: var(--color-black-3);
+}
+
+
+/* Articles */
+.grid article div,
+#sectionSecondary .subSection header div {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-small);
+	justify-content: space-between;
 }
