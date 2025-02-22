@@ -192,6 +192,7 @@ main {
 /* Actions buttons and interactions buttons */
 button,
 input,
+select,
 textarea,
 #headerPage li {
 	display: flex;
@@ -210,12 +211,14 @@ textarea,
 /* Ajouter des border pour tous les boutons saufs les li */
 main button,
 input,
+select,
 textarea {
 	border: var(--color-black-2) solid 1px;
 }
 
 main button:hover,
 #sectionSecondary .subSection form input:hover,
+select:hover,
 #sectionSecondary .subSection form textarea:hover {
 	background-color: var(--color-black-2);
 }
@@ -225,7 +228,7 @@ main button:hover,
 	background-color: var(--color-green);
 }
 
-.subSection > header,
+.subSection header,
 .grid article header {
 	display: flex;
 	justify-content: space-between;
@@ -368,6 +371,65 @@ main button:hover,
 	flex: 1;
 }
 
+/* Calendar */
+.subSection .calendar {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: var(--padding-small);
+}
+
+.subSection .calendar header button {
+	background-color: var(--color-white);
+	color: var(--color-green);
+	border: none;
+}
+
+.subSection .calendar .days {
+	padding-top: var(--padding-small);
+	display: grid;
+	grid-template-columns: repeat(7,1fr);
+}
+
+.subSection .calendar .dates {
+	padding-top: var(--padding-medium);
+	display: grid;
+	grid-template-columns: repeat(7,1fr);
+	text-align: center;
+	gap: var(--gap-small);
+	height: 100%;
+	
+}
+
+.subSection .calendar .date {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin: auto;
+	cursor: pointer;
+	font-weight: 600;
+	border-radius: var(--border-radius-small);
+}
+
+
+.subSection .calendar .date.active {
+	background-color: var(--color-white);
+	color: var(--color-green);
+}
+
+.subSection .calendar .date:hover {
+	border: 1px solid var(--color-white);
+	transition: 0.2s;
+}
+
+
+.subSection .day {
+	text-align: center;
+}
+
 /* SectionSecondary Grid */
 #sectionSecondary {
 	display: grid;
@@ -387,6 +449,7 @@ main button:hover,
 }
 
 #sectionSecondary .subSection form input,
+select,
 #sectionSecondary .subSection form textarea {
 	background-color: transparent;
 	justify-content: flex-start;
@@ -420,6 +483,11 @@ main button:hover,
 /* Articles */
 .grid section article {
 	background-color: var(--color-black-3);
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-medium);
+	align-items: flex-start; 
+
 }
 
 /* Articles */
@@ -430,6 +498,30 @@ main button:hover,
 	gap: var(--gap-small);
 	justify-content: space-between;
 }
+
+/* Tags colors */
+.greenTags {
+	background-color: var(--color-green);
+	color: white;
+}
+
+.orangeTags {
+	background-color: var(--color-orange);
+	color: white;
+}
+
+.redTags {
+	background-color: var(--color-red);
+	color: white;
+}
+
+.blueTags {
+	background-color: var(--color-blue);
+	color: white;
+}
+
+
+
 
 /* Media Querie */
 @media (max-width: 1440px) {

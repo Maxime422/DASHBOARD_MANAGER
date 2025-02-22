@@ -168,11 +168,27 @@
 
 				<!-- SubSections / Date and Planning -->
 				<div class="subSection">
-					<header>
-						<h2>Date</h2>
-						<i class="fa-solid fa-circle-info"></i>
-					</header>
-					<div id="tasksSection"></div>
+					<div class="calendar">
+						<header>
+							<button id="prevBtn">
+								<i class="fa-solid fa-angle-left"></i>
+							</button>
+							<div class="monthYear bold" id="monthYear"></div>
+							<button id="nextBtn">
+								<i class="fa-solid fa-angle-right"></i>
+							</button>
+						</header>
+						<div class="days">
+							<div class="day bold">Lun</div>
+							<div class="day bold">Mar</div>
+							<div class="day bold">Mer</div>
+							<div class="day bold">Jeu</div>
+							<div class="day bold">Ven</div>
+							<div class="day bold">Sam</div>
+							<div class="day bold">Dim</div>
+						</div>
+						<div class="dates" id="dates"></div>
+					</div>
 				</div>
 			</section>
 
@@ -189,7 +205,7 @@
 					<form>
 						<!-- Title -->
 						<label for="title" class="secondaryText">Titre</label>
-						<input type="text" name="title" id="title" placeholder="Titre" required/>
+						<input type="text" name="title" id="title" placeholder="Titre" required />
 						<!-- minlength="10" maxlength="20"  -->
 						<!-- List -->
 						<label for="categoriesList" class="secondaryText">Catégorie</label>
@@ -200,9 +216,15 @@
 							<option value="Anglais"></option>
 						</datalist>
 
-						<!-- Sub-Title -->
-						<label for="subTitle" class="secondaryText">Sous-Titre</label>
-						<input type="text" name="subTitle" id="subTitle" placeholder="Sous-Titre" />
+						<!-- Tags -->
+						<label for="tagsList" class="secondaryText">Catégorie</label>
+						<select list="tagsList" id="tags" placeholder="Tags">
+							<option value="">Tags</option>
+							<option value="À faire">À faire</option>
+							<option value="En cours">En cours</option>
+							<option value="Terminer">Terminer</option>
+							<option value="Annuler">Annuler</option>
+						</select>
 
 						<!-- Date -->
 						<label for="addDate" class="secondaryText">Date</label>
@@ -225,7 +247,10 @@
 						<h2>Liste des tâches</h2>
 						<div>
 							<button id="removeLists"><i class="fa-solid fa-circle-info"></i></button>
-							<button id="createLists" class="green"><i class="fa-solid fa-circle-info"></i>Ajouter une liste</button>
+							<button id="createLists" class="green">
+								<i class="fa-solid fa-circle-info"></i>
+								Ajouter une liste
+							</button>
 							<a href=""></a>
 						</div>
 					</header>
