@@ -359,11 +359,12 @@ function StatesAnimation(WeatherStatuts) {
 			break;
 
 		case 'Thunderstorm':
-			console.log(WeatherStatuts, 'bonjour 1');
-			container.innerHTML = `<div class="cloud front">
+			container.innerHTML = `<div class="cloud front rain">
 				<span class="left-front cloudStyle"></span>
 				<span class="right-front cloudStyle"></span>
 		  	</div>
+		  	<span class="sun sunCloud sunshine"></span>
+		  	<span class="sun sunCloud"></span>
 		  	<div class="cloud back">
 				<span class="left-back cloudStyle"></span>
 				<span class="right-back cloudStyle"></span>

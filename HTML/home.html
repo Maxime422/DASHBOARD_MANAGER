@@ -22,9 +22,6 @@
 
 		<script type="module" src="../JS/utils.js" defer></script>
 		<script type="module" src="../JS/index-script.js" defer></script>
-
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
-		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	</head>
 
 	<body>
@@ -39,7 +36,7 @@
 				</a>
 
 				<!-- Navigation -->
-				<nav>
+				<nav aria-label="Navigation Systeme header">
 					<ul>
 						<li><a href="#">Tâches</a></li>
 						<li><a href="../HTML/maps.html">Maps</a></li>
@@ -53,7 +50,7 @@
 					<button id="darkLightMode"><i class="fa-solid fa-moon"></i></button>
 					<a href="../HTML/search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
 					<div>
-						<img class="profilePicture" src="../IMG/warren-VVEwJJRRHgk-unsplash.jpg" width="64px" alt="Profile picture img" />
+						<img class="profilePicture" src="../IMG/warren-VVEwJJRRHgk-unsplash.jpg" width="64px" alt="Profile img" />
 					</div>
 				</div>
 			</div>
@@ -71,7 +68,7 @@
 						<span class="secondaryText">citation du jour</span>
 						<p>citation random, Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					</header>
-					<nav>
+					<nav aria-label="Navigation pages">
 						<ul>
 							<li>
 								<button class="green">
@@ -198,8 +195,8 @@
 					<form>
 						<!-- Title -->
 						<label for="title" class="secondaryText">Titre</label>
-						<input type="text" name="title" id="title" placeholder="Titre" required />
-						<!-- minlength="10" maxlength="20"  -->
+						<input type="text" name="title" id="title" placeholder="Titre" required 						minlength="10" maxlength="20" />
+
 						<!-- List -->
 						<label for="categories" class="secondaryText">Catégorie</label>
 						<input list="categoriesList" id="categories" placeholder="catégories" />
@@ -225,8 +222,8 @@
 
 						<!-- Description -->
 						<label for="description" class="secondaryText">Description</label>
-						<textarea name="description" id="description" placeholder="Décrivez la tâche ici" required></textarea>
-						<!-- minlength="10" maxlength="80" -->
+						<textarea name="description" id="description" placeholder="Décrivez la tâche ici" minlength="10" maxlength="80" required></textarea>
+						
 						<!-- Buttons -->
 						<div>
 							<button type="reset">Réinitialiser</button>
@@ -273,7 +270,7 @@
 				</a>
 
 				<!-- Navigation -->
-				<nav>
+				<nav aria-label="Navigation Systeme footer">
 					<ul>
 						<li><a href="#">Tâches</a></li>
 						<li><a href="#">Maps</a></li>
