@@ -3,9 +3,12 @@
 document.querySelector(`#darkLightMode`).addEventListener(`click`, () => {
 	const mode = document.querySelector(`#mode`);
 
+	const linkMode = mode.getAttribute(`href`);
+	const pathPrefix = linkMode.substring(0, linkMode.indexOf("CSS/"));
+
 	// Variables Light Dark mode CSS
-	const light = `../CSS/light-mode.css`;
-	const dark = `../CSS/dark-mode.css`;
+	const light = `${pathPrefix}CSS/light-mode.css`;
+	const dark = `${pathPrefix}CSS/dark-mode.css`;
 
 	if (mode.getAttribute(`href`) === `${light}`) {
 		mode.setAttribute(`href`, `${dark}`);
