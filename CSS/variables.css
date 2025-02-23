@@ -94,15 +94,18 @@ button,
 a,
 input,
 span,
-p {
+p,
+textarea,
+label,
+select {
 	font-size: var(--text-size-small);
 	font-weight: var(--font-weight-bold);
 }
 
-
 /* Variables colors */
 .green {
 	background-color: var(--color-green);
+	color: var(--color-white-only);
 }
 
 .green:hover {

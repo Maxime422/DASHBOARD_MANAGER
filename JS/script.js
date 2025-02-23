@@ -1,10 +1,8 @@
+"use strict";
 /* eslint-disable prefer-const */
 // Dark Light Mode Toggle
-const modeLightDark = document.querySelector(`#darkLightMode`);
-
-modeLightDark.addEventListener(`click`, () => {
+document.querySelector(`#darkLightMode`).addEventListener(`click`, () => {
 	const mode = document.querySelector(`#mode`);
-	console.log(mode.getAttribute(`href`));
 
 	// Variables Light Dark mode CSS
 	const light = `CSS/light-mode.css`;
@@ -12,10 +10,8 @@ modeLightDark.addEventListener(`click`, () => {
 
 	if (mode.getAttribute(`href`) === `${light}`) {
 		mode.setAttribute(`href`, `${dark}`);
-		console.log(mode.getAttribute(`href`));
 	} else if (mode.getAttribute(`href`) === `${dark}`) {
 		mode.setAttribute(`href`, `${light}`);
-		console.log(mode.getAttribute(`href`));
 	} else {
 		console.log(`Erreur inattendue lors du changement de mode`);
 	}
@@ -29,8 +25,7 @@ function createIcon() {
 }
 
 // Form Request
-const formTasks = document.querySelector(`form`);
-formTasks.addEventListener(`submit`, (event) => {
+document.querySelector(`form`).addEventListener(`submit`, (event) => {
 	event.preventDefault();
 	categoriesManagement();
 });
@@ -39,20 +34,22 @@ formTasks.addEventListener(`submit`, (event) => {
 function categoriesManagement() {
 	try {
 		let categories = document.querySelector(`#categories`).value;
-		console.log(categories);
 
 		let categoriesList = document.querySelectorAll(`#categoriesList option`);
-		console.log(categoriesList);
 
+		// Pour chaque option de la lists du form
 		categoriesList.forEach((option) => {
+			// Si l'option est === à la catégories de l'input
 			if (option.value === categories) {
 				let sectionCategory = document.querySelector(`#${categories}`);
-				console.log(sectionCategory);
+				// si la section catégorie existe bien créer une nouvelle tasks
 				if (sectionCategory) {
 					NewTasks(sectionCategory);
 				} else {
 					console.error(`Section with id ${categories} not found.`);
 				}
+			} else {
+				alert(`${categories} not found.`);
 			}
 		});
 	} catch (error) {
@@ -82,34 +79,31 @@ function NewTasks(sectionCategory) {
 
 		let divActions = document.createElement('div');
 		divActions.append(button1, button2);
-		console.log(divActions);
 
 		let divTitle = document.createElement('div');
 		divTitle.append(createIcon(), title);
 
 		let header = document.createElement('header');
 		header.append(divTitle, divActions);
-		console.log(header);
 
 		let button = document.createElement('button');
 		button.type = 'button';
 		button.textContent = 'Terminé';
 
 		let divStatuts = document.createElement('div');
-		divStatuts.append(date, button);
-
+		if (tags) {
+			divStatuts.append(tags, button);
+		} else {
+			divStatuts.append(button);
+		}
 		// Condition Tags != null
 		let article = document.createElement('article');
-		if (tags) {
-			article.append(header, description, tags, divStatuts);
-		} else {
-			article.append(header, description, divStatuts);
-		}
+
+		article.append(header, description, date, divStatuts);
 
 		//  If tags === true apply style to tags
 		if (tags) {
 			tags.addEventListener('change', tagsStyle);
-
 			tagsStyle({target: tags});
 		}
 
@@ -122,7 +116,6 @@ function NewTasks(sectionCategory) {
 // Création des tags
 function createTags() {
 	let tagsForm = document.querySelector(`#tags`).value;
-	console.log(tagsForm);
 	if (tagsForm) {
 		let tags = document.createElement('select');
 
@@ -136,8 +129,7 @@ function createTags() {
 			option.textContent = optionText;
 			tags.appendChild(option);
 		});
-
-		console.log(tags);
+	
 		return tags;
 	} else {
 		console.log(`no tags`);
@@ -177,56 +169,109 @@ const nextBtn = document.querySelector(`#nextBtn`);
 let currentDate = new Date();
 
 const updateCalendar = () => {
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
+	const currentYear = currentDate.getFullYear();
+	const currentMonth = currentDate.getMonth();
 
-    // Calculer le premier jour du mois actuel
-    const firstDay = new Date(currentYear, currentMonth, 1);
-    const firstDayIndex = firstDay.getDay(); // Jour de la semaine du premier jour
+	// Calculer le premier jour du mois actuel
+	const firstDay = new Date(currentYear, currentMonth, 1);
+	const firstDayIndex = firstDay.getDay(); // Jour de la semaine du premier jour
 
-    // Calculer le dernier jour du mois actuel
-    const lastDay = new Date(currentYear, currentMonth + 1, 0);
-    const totalDays = lastDay.getDate();
-    const lastDayIndex = lastDay.getDay(); // Jour de la semaine du dernier jour
+	// Calculer le dernier jour du mois actuel
+	const lastDay = new Date(currentYear, currentMonth + 1, 0);
+	const totalDays = lastDay.getDate();
+	const lastDayIndex = lastDay.getDay(); // Jour de la semaine du dernier jour
 
-    // Mettre à jour l'affichage du mois et de l'année
-    const monthYearString = currentDate.toLocaleDateString('default', { month: 'long', year: 'numeric' });
-    monthYearElement.textContent = monthYearString;
+	// Mettre à jour l'affichage du mois et de l'année
+	const monthYearString = currentDate.toLocaleDateString('default', {month: 'long', year: 'numeric'});
+	monthYearElement.textContent = monthYearString;
 
-    let datesHTML = '';
+	let datesHTML = '';
 
-    // Ajouter les jours du mois précédent
-    const prevMonthLastDate = new Date(currentYear, currentMonth, 0).getDate();
-    for (let i = firstDayIndex - 1; i >= 0; i--) {
-        const prevDate = prevMonthLastDate - i;
-        datesHTML += `<div class="date inactive">${prevDate}</div>`;
-    }
+	// Ajouter les jours du mois précédent
+	const prevMonthLastDate = new Date(currentYear, currentMonth, 0).getDate();
+	for (let i = firstDayIndex - 1; i >= 0; i--) {
+		const prevDate = prevMonthLastDate - i;
+		datesHTML += `<div class="date inactive">${prevDate}</div>`;
+	}
 
-    // Ajouter les jours du mois actuel
-    for (let i = 1; i <= totalDays; i++) {
-        const date = new Date(currentYear, currentMonth, i);
-        const activeClass = date.toDateString() === new Date().toDateString() ? 'active' : '';
-        datesHTML += `<div class="date ${activeClass}">${i}</div>`;
-    }
+	// Ajouter les jours du mois actuel
+	for (let i = 1; i <= totalDays; i++) {
+		const date = new Date(currentYear, currentMonth, i);
+		const activeClass = date.toDateString() === new Date().toDateString() ? 'active' : '';
+		datesHTML += `<div class="date ${activeClass}">${i}</div>`;
+	}
 
-    // Ajouter les jours du mois suivant
-    for (let i = 1; i <= 7 - (lastDayIndex + 1); i++) {
-        const nextDate = new Date(currentYear, currentMonth + 1, i);
-        datesHTML += `<div class="date inactive">${nextDate.getDate()}</div>`;
-    }
+	// Ajouter les jours du mois suivant
+	for (let i = 1; i <= 7 - (lastDayIndex + 1); i++) {
+		const nextDate = new Date(currentYear, currentMonth + 1, i);
+		datesHTML += `<div class="date inactive">${nextDate.getDate()}</div>`;
+	}
 
-    datesElement.innerHTML = datesHTML;
+	datesElement.innerHTML = datesHTML;
 };
 
 prevBtn.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    updateCalendar();
+	currentDate.setMonth(currentDate.getMonth() - 1);
+	updateCalendar();
 });
 
 nextBtn.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    updateCalendar();
+	currentDate.setMonth(currentDate.getMonth() + 1);
+	updateCalendar();
 });
-
 updateCalendar();
 
+// Clock
+time();
+
+function time() {
+	const date = new Date();
+	const hours = String(date.getHours()).padStart(2, '0');
+	const mins = String(date.getMinutes()).padStart(2, '0');
+	const second = String(date.getSeconds()).padStart(2, '0');
+
+	let time = document.querySelector(`.tempTime`);
+	time.textContent = `${hours}:${mins}:${second}`;
+}
+
+setInterval(time, 1000);
+
+// Days
+days();
+function days() {
+	const date = new Date();
+	let dateLocal = date.toLocaleDateString(`fr-Fr`, {
+		day: `numeric`,
+		month: `long`,
+		year: `numeric`,
+	});
+	let weekday = date.toLocaleDateString(`fr-Fr`, {
+		weekday: `long`,
+	});
+
+	let dateUpdate = document.querySelector(`#date`);
+	dateUpdate.textContent = dateLocal;
+
+	let weekdayUpdate = document.querySelector(`#weekday`);
+	weekdayUpdate.textContent = weekday;
+}
+setInterval(days, 24 * 60 * 60 * 1000);
+
+// Wheather
+async function categoriesMeal() {
+	const url = `https://www.themealdb.com/api/json/v1/1/filter.php`;
+	try {
+		const response = await fetch(url);
+		console.log(url);
+		if (!response.ok) {
+			throw new Error(`Response status: ${response.status}`);
+		}
+
+		const json = await response.json();
+		console.log(json);
+		// Meal(json);
+	} catch (error) {
+		console.error(error.message);
+	}
+}
+categoriesMeal();
