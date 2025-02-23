@@ -1,0 +1,150 @@
+/* Wheather animation */
+.subSection:nth-of-type(3) {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.subSection .containerWeather {
+	width: 250px;
+	height: 250px;
+	right: -35px;
+	top: -40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(0.7);
+}
+
+/* Positions absolute */
+.subSection .containerWeather,
+.subSection .front {
+	position: absolute;
+}
+
+/* dispositions des Clouds */
+.subSection .front,
+.subSection .back {
+	display: inline;
+	z-index: 11;
+	animation: clouds 8s infinite;
+	animation-timing-function: ease-in-out;
+}
+
+/* Taille des Clouds */
+.subSection .cloud {
+	width: 250px;
+}
+
+.subSection .front {
+	padding-top: 65px;
+	margin-left: 25px;
+	z-index: 11;
+}
+
+.subSection .back {
+	margin-top: -30px;
+	margin-left: 150px;
+	z-index: 12;
+}
+
+.subSection .cloudStyle {
+	background-color: var(--color-blue-3);
+	display: inline-block;
+	z-index: 5;
+}
+
+/* Cloud Right */
+.subSection .right-front {
+	width: 45px;
+	height: 45px;
+	border-radius: 50% 50% 50% 0%;
+
+	margin-left: -25px;
+}
+
+.subSection .right-back {
+	width: 50px;
+	height: 50px;
+	border-radius: 50% 50% 50% 0%;
+	margin-left: -20px;
+}
+
+/* Clouds Left */
+.subSection .left-front {
+	width: 65px;
+	height: 65px;
+	border-radius: 50% 50% 0% 50%;
+}
+
+.subSection .left-back {
+	width: 30px;
+	height: 30px;
+	border-radius: 50% 50% 0% 50%;
+}
+
+/* Sun */
+.subSection .sun {
+	margin-top: 15px;
+	width: 120px;
+	height: 120px;
+	background: -webkit-linear-gradient(to right, #fcbb04, #fffc00);
+	border-radius: 60px;
+	display: inline;
+	position: absolute;
+}
+
+/* Color of sun */
+.subSection .sunCloud {
+	background: linear-gradient(to right, #fcbb04, #fffc00);
+}
+
+/* Color of sun */
+.subSection .sunClear {
+	background: linear-gradient(to right, #fcad04, #ffd900);
+}
+
+.subSection .sunshine {
+	animation: sunshines 2s infinite;
+}
+
+/* Key frames */
+@keyframes sunshines {
+	0% {
+		transform: scale(1);
+		opacity: 0.6;
+	}
+
+	100% {
+		transform: scale(1.4);
+		opacity: 0;
+	}
+}
+
+@keyframes clouds {
+	0% {
+		transform: translateX(15px);
+	}
+
+	50% {
+		transform: translateX(0px);
+	}
+
+	100% {
+		transform: translateX(15px);
+	}
+}
+
+@keyframes drops {
+	0% {
+		transform: translateX(15px);
+	}
+
+	50% {
+		transform: translateX(0px);
+	}
+
+	100% {
+		transform: translateX(15px);
+	}
+}

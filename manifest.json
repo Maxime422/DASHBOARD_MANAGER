@@ -1,14 +1,19 @@
 {
-	"short_name": "Integra",
-	"name": "Integra",
+	"short_name": "integra",
+	"name": "Integra Dashboard – La gestion simplifiée",
 	"icons": [
 		{
-			"src": "...",
+			"src": "IMG/LOGO_INTEGRA_128",
 			"type": "image/png",
-			"sizes": "192x192"
+			"sizes": "128x128"
 		},
 		{
-			"src": "...",
+			"src": "IMG/LOGO_INTEGRA_256",
+			"type": "image/png",
+			"sizes": "256x256"
+		},
+		{
+			"src": "IMG/LOGO_INTEGRA_512",
 			"type": "image/png",
 			"sizes": "512x512"
 		}

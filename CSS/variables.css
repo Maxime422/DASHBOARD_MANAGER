@@ -75,7 +75,7 @@ button {
 /* Gestion des fonts */
 h1,
 .tempTime,
-.tempWeather {
+#tempWeather {
 	font-size: var(--text-size-extra);
 	font-weight: var(--font-weight-black);
 }

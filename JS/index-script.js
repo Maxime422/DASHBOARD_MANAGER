@@ -1,21 +1,6 @@
-"use strict";
+'use strict';
 /* eslint-disable prefer-const */
 // Dark Light Mode Toggle
-document.querySelector(`#darkLightMode`).addEventListener(`click`, () => {
-	const mode = document.querySelector(`#mode`);
-
-	// Variables Light Dark mode CSS
-	const light = `CSS/light-mode.css`;
-	const dark = `CSS/dark-mode.css`;
-
-	if (mode.getAttribute(`href`) === `${light}`) {
-		mode.setAttribute(`href`, `${dark}`);
-	} else if (mode.getAttribute(`href`) === `${dark}`) {
-		mode.setAttribute(`href`, `${light}`);
-	} else {
-		console.log(`Erreur inattendue lors du changement de mode`);
-	}
-});
 
 // Fuction create Icons
 function createIcon() {
@@ -48,8 +33,6 @@ function categoriesManagement() {
 				} else {
 					console.error(`Section with id ${categories} not found.`);
 				}
-			} else {
-				alert(`${categories} not found.`);
 			}
 		});
 	} catch (error) {
@@ -129,7 +112,7 @@ function createTags() {
 			option.textContent = optionText;
 			tags.appendChild(option);
 		});
-	
+
 		return tags;
 	} else {
 		console.log(`no tags`);
@@ -257,21 +240,137 @@ function days() {
 }
 setInterval(days, 24 * 60 * 60 * 1000);
 
-// Wheather
-async function categoriesMeal() {
-	const url = `https://www.themealdb.com/api/json/v1/1/filter.php`;
+// Get Lat and Long
+function getLocalisation() {
+	navigator.geolocation.getCurrentPosition(
+		(position) => {
+			let latitude = position.coords.latitude;
+			let longitude = position.coords.longitude;
+			console.log(latitude, longitude);
+			Locate(latitude, longitude);
+			Weather(latitude, longitude);
+		},
+		(erreur) => {
+			console.error('Géolocalisation non accessible :', erreur);
+			document.querySelector(`#country`).textContent = `Localisation inaccessible`;
+		},
+	);
+}
+getLocalisation();
+
+// Locate
+async function Locate(latitude, longitude) {
+	const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
 	try {
 		const response = await fetch(url);
 		console.log(url);
 		if (!response.ok) {
 			throw new Error(`Response status: ${response.status}`);
 		}
-
-		const json = await response.json();
-		console.log(json);
-		// Meal(json);
+		const jsonLocalte = await response.json();
+		updatePosition(jsonLocalte, null);
 	} catch (error) {
 		console.error(error.message);
 	}
 }
-categoriesMeal();
+
+// Weather
+async function Weather(latitude, longitude) {
+	const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=c8e87e8006e651c90643bfc35c5ebeae&units=Metric&lang=fr`;
+	try {
+		const response = await fetch(url);
+		console.log(url);
+		if (!response.ok) {
+			throw new Error(`Response status: ${response.status}`);
+		}
+		const jsonWeather = await response.json();
+		console.log(jsonWeather);
+		updatePosition(null, jsonWeather);
+	} catch (error) {
+		console.error(error.message);
+	}
+}
+
+function updatePosition(jsonLocalte, jsonWeather) {
+	if (jsonLocalte) {
+		document.querySelector(`#country`).textContent = `${jsonLocalte.address.country}, ${jsonLocalte.address.country_code}`;
+		document.querySelector(`#city`).textContent = `${jsonLocalte.address.municipality}, ${jsonLocalte.address.postcode}`;
+	}
+	if (jsonWeather) {
+		document.querySelector(`#humidityWeather`).textContent = `humidité : ${jsonWeather.main.humidity}%`;
+		document.querySelector(`#statutWeather`).textContent = `${jsonWeather.weather[0].description}`;
+
+		let tempString = jsonWeather.main.temp.toString();
+		let resultat = tempString.includes('.') ? tempString.split('.')[0] : tempString.slice(0, 2);
+		document.querySelector(`#tempWeather`).textContent = `${resultat}°c`;
+
+		// État de la météo
+		const WeatherStatuts = `Rain`;
+		StatesAnimation(WeatherStatuts);
+	}
+}
+
+function StatesAnimation(WeatherStatuts) {
+	// Vérifie que le conteneur existe dans le DOM
+	const container = document.querySelector('.containerWeather');
+
+	switch (WeatherStatuts) {
+		case 'Clouds':
+			container.innerHTML = `<div class="cloud front">
+				<span class="left-front cloudStyle"></span>
+				<span class="right-front cloudStyle"></span>
+		  	</div>
+		  	<span class="sun sunCloud sunshine"></span>
+		  	<span class="sun sunCloud"></span>
+		  	<div class="cloud back">
+				<span class="left-back cloudStyle"></span>
+				<span class="right-back cloudStyle"></span>
+		  	</div>`;
+			break;
+
+		case 'Clear':
+			container.innerHTML = `<span class="sun sunClear sunshine"></span>
+		  	<span class="sun sunClear"></span>`;
+			break;
+
+		case 'Snow':
+			console.log(WeatherStatuts, 'bonjour 1');
+			container.innerHTML = `<div class="cloud front">
+				<span class="left-front cloudStyle"></span>
+				<span class="right-front cloudStyle"></span>
+		  	</div>
+		  	<div class="cloud back">
+				<span class="left-back cloudStyle"></span>
+				<span class="right-back cloudStyle"></span>
+		  	</div>`;
+			break;
+
+		case 'Rain':
+			container.innerHTML = `<div class="cloud front rain">
+				<span class="left-front cloudStyle"></span>
+				<span class="right-front cloudStyle"></span>
+		  	</div>
+		  	<span class="sun sunCloud sunshine"></span>
+		  	<span class="sun sunCloud"></span>
+		  	<div class="cloud back">
+				<span class="left-back cloudStyle"></span>
+				<span class="right-back cloudStyle"></span>
+		  	</div>`;
+			break;
+
+		case 'Thunderstorm':
+			console.log(WeatherStatuts, 'bonjour 1');
+			container.innerHTML = `<div class="cloud front">
+				<span class="left-front cloudStyle"></span>
+				<span class="right-front cloudStyle"></span>
+		  	</div>
+		  	<div class="cloud back">
+				<span class="left-back cloudStyle"></span>
+				<span class="right-back cloudStyle"></span>
+		  	</div>`;
+			break;
+
+		default:
+			console.log(WeatherStatuts, 'bonjour 2');
+	}
+}

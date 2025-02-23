@@ -1,34 +1,48 @@
-# Nom du Projet
+# Integra Dashboard – La gestion simplifiée
 
 ![Bannière du Projet](lien-vers-image)
 
 ## 🚀 Description
 
-Brève description du projet. Quel est son objectif ? Qui est-il destiné à aider ?
+Integra est une plateforme tout-en-un qui combine gestion de tâches, suivi d'informations importantes (météo, finances, calendrier), et outils de productivité inspiré. L’objectif est de rassembler toutes vos ressources au même endroit pour simplifier votre organisation.
 
 ## 🎨 Identité Visuelle
 
-- **Couleur principale :** `#VotreCouleurPrincipale`
-- **Couleur secondaire :** `#VotreCouleurSecondaire`
-- **Typographie :** `Nom de la police`
+- **Couleur principale :** `#11b86a`
+- **Couleur secondaire :** `#23a166`
+- **Blanc :** `#131313`
+- **Noir :** `#fafafa`
+- **Typographie :** `Montserrat`
+
+## ⚙️ API
+
+- **API :** [OpenWeather](https://openweathermap.org/)
+- **API :** [Leaflet](https://leafletjs.com/)
+- **API :** [OpenStreetMap](https://www.openstreetmap.org/about)
+
+## 🗂️ Ressources
+
+- **Card Inspiration :** [uiverse.io Zannia-yassine](https://uiverse.io/profile/zanina-yassine)
+- **Icons :** [Font Awsome](https://fontawesome.com/)
+- **Icons :** [Flaticon](https://www.flaticon.com/)
+- **Fonts :** [Google Fonts](https://fonts.google.com/specimen/Montserrat)
+- **Images :** [Unsplash](https://unsplash.com/)
 
 ## 🔧 Technologies Utilisées
 
 - **Frontend :** `HTML`, `CSS`, `JavaScript`
-- **Frameworks/Bibliothèques :** `React`, `Vue.js`, `TailwindCSS`
-- **Backend :** `Node.js`, `Express.js`, `PHP`
-- **Base de données :** `MongoDB`, `MySQL`
-- **Outils :** `Git`, `GitHub`, `Docker`
+- **Outils :** `Prettier`, `Eslint`
+- **Versionnage et détection :** `Git`, `GitHub`, `SonarQube`
 
 ## 📦 Installation
 
 1. **Cloner le dépôt :**
     ```bash
-    git clone https://github.com/VotreNomUtilisateur/VotreRepo.git
+    git clone https://github.com/Maxime422/DASHBOARD_MANAGER
     ```
 2. **Se rendre dans le dossier du projet :**
     ```bash
-    cd nom-du-projet
+    cd DASHBOARD_MANAGER
     ```
 3. **Installer les dépendances :**
     ```bash
@@ -41,15 +55,17 @@ Brève description du projet. Quel est son objectif ? Qui est-il destiné à aid
 
 ## 🛠 Fonctionnalités
 
-- ✅ Fonctionnalité 1
-- ✅ Fonctionnalité 2
-- ✅ Fonctionnalité 3
+- ✅ Maps interactive en temps réel
+- ✅ Gestionnaire de tâches et calendrier
+- ✅ Gestionnaires de météo
+- ✅ Embarquement en application web (WPA)
 
 ## 🚧 Améliorations Futures
 
-- [ ] Amélioration 1
-- [ ] Amélioration 2
-- [ ] Amélioration 3
+- [ ] Améliorer le style, ajouter des éléments facilitant l'UI et l'UX
+- [ ] Optimiser les scripts (JS)
+- [ ] Création d'une section Alimentation
+- [ ] Création d'une section Statistiques
 
 ## 🤝 Contribuer
 
@@ -59,15 +75,10 @@ Brève description du projet. Quel est son objectif ? Qui est-il destiné à aid
 4. **Pousser** la branche (`git push origin nouvelle-fonctionnalité`)
 5. **Ouvrir** une Pull Request
 
-## 📄 Licence
-
-Ce projet est sous licence `MIT` - voir le fichier LICENSE pour plus de détails.
-
 ## 📞 Contact
 
 Pour toute question, contactez-moi :
 
-- **Email :** [germismaxime@gmail.com](mailto:germismaxime@gmail.com)
 - **LinkedIn :** [Germis Maxime](https://www.linkedin.com/in/maxime-germis)
 - **GitHub :** [Maxime422](https://github.com/Maxime422)
 

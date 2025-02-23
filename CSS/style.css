@@ -1,85 +1,3 @@
-/* Couleurs */
-:root {
-	--color-blue: #1327b7;
-	--color-blue-1: #1b41e9;
-	--color-blue-2: #3d4fd1;
-	--color-blue-3: #697af3;
-
-	--color-white: #fafafa;
-	--color-white-1: #eeedf4;
-	--color-white-2: #dedeeb;
-
-	--color-gray: #d4d4d4;
-	--color-gray-1: #adadad;
-
-	--color-black: #131313;
-	--color-black-1: #111113;
-	--color-black-2: #434141;
-
-	--color-red: #b5403c;
-	--color-red-1: #d62038;
-	--color-red-2: #991022;
-
-	--color-green: #11b86a;
-	--color-green-1: #23a166;
-	--color-green-2: #3ad98f;
-
-	--color-orange: #f88a0c;
-	--color-orange-1: #d68120;
-	--color-orange-2: #e8a04d;
-	--color-orange-3: #e5ae6f;
-
-	--border-gray: rgba(255, 255, 255, 0.171);
-
-	--font-main: 'Montserrat', sans-serif;
-	--font-weight-bold: 600;
-	--font-weight-extra-bold: 700;
-	--font-weight-black: 800;
-
-	/* Tailles de texte */
-	--text-size-small: 0.8rem;
-	--text-size-medium: 1rem;
-	--text-size-large: 1.5rem;
-	--text-size-extra: 2.5rem;
-
-	/* Bordures */
-	--border-radius-small: 0.5rem;
-	--border-radius-medium: 1rem;
-	--border-radius-big: 2rem;
-	--border-radius-circle: 100%;
-
-	/* Les marges et espacements */
-	--margin-small: 0.5rem;
-	--margin-left-right-small: 0.5rem 0;
-	--margin-medium: 1rem;
-	--margin-left-right-medium: 1rem 0;
-	--margin-large: 2rem;
-	--margin-left-right-large: 2rem 0;
-	--margin-extra: 4rem;
-	--margin-left-right-extra: 4rem 0;
-	--marrgin-top-bottom-small: 0.5rem 0;
-	--marrgin-top-bottom-medium: 1rem 0;
-	--marrgin-top-bottom-large: 2rem 0;
-
-	--padding-small: 0.5rem;
-	--padding-left-right-small: 0.5rem 0;
-	--padding-medium: 1rem;
-	--padding-left-right-medium: 1rem 0;
-	--padding-large: 2rem;
-	--padding-left-right-large: 2rem 0;
-	--padding-extra: 4rem;
-	--padding-left-right-extra: 4rem 0;
-	--padding-top-bottom-large: 2rem 0;
-	--padding-top-bottom-extra: 4rem 0;
-
-	--gap-small: 0.5rem;
-	--gap-medium: 1rem;
-	--gap-large: 2rem;
-	--gap-extra: 4rem;
-}
-
-/* Code utile à partir d'ici !!!!!!*/
-
 .container {
 	width: 1440px;
 	margin: 0 auto;
@@ -178,6 +96,12 @@ main {
 	gap: var(--gap-large);
 }
 
+/* Aside nav */
+.largeSection {
+	grid-row: 1/3;
+	grid-column: 2/4;
+}
+
 #asideNav h1,
 .subSection > header {
 	padding-bottom: var(--padding-medium);
@@ -231,133 +155,12 @@ form select:hover,
 
 .subSection header,
 .grid article header,
-.grid article>div {
+.grid article > div {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: var(--gap-medium);
 	width: 100%;
-}
-
-/* Wheather animation */
-.subSection:nth-of-type(3) {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-}
-
-.subSection .containerWeather {
-	width: 250px;
-	height: 250px;
-	position: absolute;
-	right: -35px;
-	top: -40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transform: scale(0.7);
-}
-
-.subSection .cloud {
-	width: 250px;
-}
-
-.subSection .front {
-	padding-top: 65px;
-	margin-left: 25px;
-	display: inline;
-	position: absolute;
-	z-index: 11;
-	animation: clouds 8s infinite;
-	animation-timing-function: ease-in-out;
-}
-
-.subSection .back {
-	margin-top: -30px;
-	margin-left: 150px;
-	z-index: 12;
-	animation: clouds 12s infinite;
-	animation-timing-function: ease-in-out;
-}
-
-.subSection .right-front {
-	width: 45px;
-	height: 45px;
-	border-radius: 50% 50% 50% 0%;
-	background-color: var(--color-blue-3);
-	display: inline-block;
-	margin-left: -25px;
-	z-index: 5;
-}
-
-.subSection .left-front {
-	width: 65px;
-	height: 65px;
-	border-radius: 50% 50% 0% 50%;
-	background-color: var(--color-blue-3);
-	display: inline-block;
-	z-index: 5;
-}
-
-.subSection .right-back {
-	width: 50px;
-	height: 50px;
-	border-radius: 50% 50% 50% 0%;
-	background-color: var(--color-blue-3);
-	display: inline-block;
-	margin-left: -20px;
-	z-index: 5;
-}
-
-.subSection .left-back {
-	width: 30px;
-	height: 30px;
-	border-radius: 50% 50% 0% 50%;
-	background-color: var(--color-blue-3);
-	display: inline-block;
-	z-index: 5;
-}
-
-.subSection .sun {
-	margin-top: 15px;
-	width: 120px;
-	height: 120px;
-	background: -webkit-linear-gradient(to right, #fcbb04, #fffc00);
-	background: linear-gradient(to right, #fcbb04, #fffc00);
-	border-radius: 60px;
-	display: inline;
-	position: absolute;
-}
-
-.subSection .sunshine {
-	animation: sunshines 2s infinite;
-}
-
-/* Key frames */
-@keyframes sunshines {
-	0% {
-		transform: scale(1);
-		opacity: 0.6;
-	}
-
-	100% {
-		transform: scale(1.4);
-		opacity: 0;
-	}
-}
-
-@keyframes clouds {
-	0% {
-		transform: translateX(15px);
-	}
-
-	50% {
-		transform: translateX(0px);
-	}
-
-	100% {
-		transform: translateX(15px);
-	}
 }
 
 .cardHeader {
@@ -370,7 +173,8 @@ form select:hover,
 .subSection .cardHeader div {
 	padding-top: var(--padding-medium);
 	display: flex;
-	align-items: flex-end;
+	flex-direction: column;
+	justify-content: flex-end;
 	flex: 1;
 }
 
@@ -392,17 +196,16 @@ form select:hover,
 .subSection .calendar .days {
 	padding-top: var(--padding-small);
 	display: grid;
-	grid-template-columns: repeat(7,1fr);
+	grid-template-columns: repeat(7, 1fr);
 }
 
 .subSection .calendar .dates {
 	padding-top: var(--padding-medium);
 	display: grid;
-	grid-template-columns: repeat(7,1fr);
+	grid-template-columns: repeat(7, 1fr);
 	text-align: center;
 	gap: var(--gap-small);
 	height: 100%;
-	
 }
 
 .subSection .calendar .date {
@@ -418,7 +221,6 @@ form select:hover,
 	border-radius: var(--border-radius-small);
 }
 
-
 .subSection .calendar .date.active {
 	background-color: var(--color-white-only);
 	color: var(--color-green);
@@ -428,7 +230,6 @@ form select:hover,
 	background-color: var(--color-green-1);
 	transition: 0.2s;
 }
-
 
 .subSection .day {
 	text-align: center;
@@ -490,8 +291,7 @@ select,
 	display: flex;
 	flex-direction: column;
 	gap: var(--gap-medium);
-	align-items: flex-start; 
-
+	align-items: flex-start;
 }
 
 /* Articles */
@@ -523,9 +323,6 @@ select,
 	background-color: var(--color-blue-2);
 	color: white;
 }
-
-
-
 
 /* Media Querie */
 @media (max-width: 1440px) {
@@ -578,6 +375,10 @@ select,
 	.grid section:last-of-type {
 		display: none;
 	}
+
+	#headerPage a span {
+		display: none;
+	}
 }
 
 /* Media 768px tablette */
@@ -604,14 +405,14 @@ select,
 	.subSection .containerWeather {
 		top: -10px;
 	}
+
+	#headerPage a span {
+		display: block;
+	}
 }
 
 /* Media 520px smartphone */
 @media (max-width: 520px) {
-	#headerPage a span {
-		display: none;
-	}
-
 	.container {
 		width: 100%;
 		padding: var(--padding-small);
