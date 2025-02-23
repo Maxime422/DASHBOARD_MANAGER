@@ -4,8 +4,8 @@ export const lightDarkMode = document.querySelector(`#darkLightMode`).addEventLi
 	const mode = document.querySelector(`#mode`);
 
 	// Variables Light Dark mode CSS
-	const light = `CSS/light-mode.css`;
-	const dark = `CSS/dark-mode.css`;
+	const light = `../CSS/light-mode.css`;
+	const dark = `../CSS/dark-mode.css`;
 
 	if (mode.getAttribute(`href`) === `${light}`) {
 		mode.setAttribute(`href`, `${dark}`);

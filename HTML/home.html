@@ -21,7 +21,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
 		<script type="module" src="../JS/utils.js" defer></script>
-		<script type="module" src="../JS/maps-script.js" defer></script>
+		<script type="module" src="../JS/index-script.js" defer></script>
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -127,11 +127,136 @@
 				</aside>
 
 				<!-- SubSections / Weather -->
-				<div class="subSection largeSection">
+				<div class="subSection">
 					<header>
 						<h2>Horloge</h2>
 						<i class="fa-solid fa-clock"></i>
 					</header>
+					<div class="cardHeader">
+						<span id="weekday" class="bold"></span>
+						<span id="date" class="bold"></span>
+						<div>
+							<span class="tempTime"></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="subSection">
+					<header>
+						<h2>Météo</h2>
+						<i class="fa-solid fa-temperature-half"></i>
+					</header>
+					<div class="containerWeather"></div>
+
+					<div class="cardHeader">
+						<span class="bold" id="country"></span>
+						<span class="bold" id="city"></span>
+						<div>
+							<span id="statutWeather"></span>
+							<span id="humidityWeather"></span>
+							<span id="tempWeather"></span>
+						</div>
+					</div>
+				</div>
+
+				<!-- SubSections / Date and Planning -->
+				<div class="subSection">
+					<div class="calendar">
+						<header>
+							<button id="prevBtn">
+								<i class="fa-solid fa-angle-left"></i>
+							</button>
+							<div class="monthYear bold" id="monthYear"></div>
+							<button id="nextBtn">
+								<i class="fa-solid fa-angle-right"></i>
+							</button>
+						</header>
+						<div class="days">
+							<div class="day bold">Lun</div>
+							<div class="day bold">Mar</div>
+							<div class="day bold">Mer</div>
+							<div class="day bold">Jeu</div>
+							<div class="day bold">Ven</div>
+							<div class="day bold">Sam</div>
+							<div class="day bold">Dim</div>
+						</div>
+						<div class="dates" id="dates"></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Secondary Section -->
+			<section id="sectionSecondary">
+				<!-- SubSections / Notations -->
+				<div class="subSection">
+					<header>
+						<h2>Assistant de tâche</h2>
+						<i class="fa-solid fa-circle-info"></i>
+					</header>
+
+					<!-- Form for Tasks -->
+					<form>
+						<!-- Title -->
+						<label for="title" class="secondaryText">Titre</label>
+						<input type="text" name="title" id="title" placeholder="Titre" required />
+						<!-- minlength="10" maxlength="20"  -->
+						<!-- List -->
+						<label for="categories" class="secondaryText">Catégorie</label>
+						<input list="categoriesList" id="categories" placeholder="catégories" />
+						<datalist id="categoriesList">
+							<option value="Administratif"></option>
+							<option value="Designs"></option>
+							<option value="Anglais"></option>
+						</datalist>
+
+						<!-- Tags -->
+						<label for="tags" class="secondaryText">Catégorie</label>
+						<select list="tagsList" id="tags" placeholder="Tags">
+							<option value="">Tags</option>
+							<option value="À faire">À faire</option>
+							<option value="En cours">En cours</option>
+							<option value="Terminer">Terminer</option>
+							<option value="Annuler">Annuler</option>
+						</select>
+
+						<!-- Date -->
+						<label for="addDate" class="secondaryText">Date</label>
+						<input type="date" name="addDate" id="addDate" />
+
+						<!-- Description -->
+						<label for="description" class="secondaryText">Description</label>
+						<textarea name="description" id="description" placeholder="Décrivez la tâche ici" required></textarea>
+						<!-- minlength="10" maxlength="80" -->
+						<!-- Buttons -->
+						<div>
+							<button type="reset">Réinitialiser</button>
+							<button type="submit" class="green">Créer</button>
+						</div>
+					</form>
+				</div>
+				<!-- SubSections / Tasks -->
+				<div class="subSection">
+					<header>
+						<h2>Liste des tâches</h2>
+						<div>
+							<button id="removeLists"><i class="fa-solid fa-trash"></i></button>
+							<button id="createLists" class="green">
+								Ajouter une liste
+								<i class="fa-solid fa-square-arrow-up-right"></i>
+							</button>
+						</div>
+					</header>
+					<div class="grid">
+						<section id="Administratif">
+							<h2>Administratif</h2>
+						</section>
+						<section id="Designs">
+							<h2>Design</h2>
+						</section>
+						<section id="Anglais">
+							<h2>Anglais</h2>
+						</section>
+					</div>
 				</div>
 			</section>
 		</main>
