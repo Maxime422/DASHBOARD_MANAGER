@@ -4,7 +4,7 @@
 
 ## 🚀 Description
 
-Integra est une plateforme tout-en-un qui combine gestion de tâches, suivi d'informations importantes (météo, finances, calendrier), et outils de productivité inspiré. L’objectif est de rassembler toutes vos ressources au même endroit pour simplifier votre organisation.
+Integra est une plateforme tout-en-un qui combine gestion de tâches, suivi d'informations importantes (météo, finances, calendrier), et outils de productivité. L’objectif est de rassembler toutes vos ressources au même endroit pour simplifier votre organisation.
 
 ## 🎨 Identité Visuelle
 
@@ -23,7 +23,7 @@ Integra est une plateforme tout-en-un qui combine gestion de tâches, suivi d'in
 ## 🗂️ Ressources
 
 - **Card Inspiration :** [uiverse.io Zannia-yassine](https://uiverse.io/profile/zanina-yassine)
-- **Icons :** [Font Awsome](https://fontawesome.com/)
+- **Icons :** [Font Awesome](https://fontawesome.com/)
 - **Icons :** [Flaticon](https://www.flaticon.com/)
 - **Fonts :** [Google Fonts](https://fonts.google.com/specimen/Montserrat)
 - **Images :** [Unsplash](https://unsplash.com/)
@@ -55,10 +55,10 @@ Integra est une plateforme tout-en-un qui combine gestion de tâches, suivi d'in
 
 ## 🛠 Fonctionnalités
 
-- ✅ Maps interactive en temps réel
+- ✅ Map interactive en temps réel
 - ✅ Gestionnaire de tâches et calendrier
-- ✅ Gestionnaires de météo
-- ✅ Embarquement en application web (WPA)
+- ✅ Gestionnaire de météo
+- ✅ Embarquement en application web (PWA)
 
 ## 🚧 Améliorations Futures
 
