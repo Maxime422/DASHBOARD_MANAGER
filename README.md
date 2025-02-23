@@ -1,7 +1,5 @@
 # Integra Dashboard – La gestion simplifiée
 
-![Bannière du Projet](lien-vers-image)
-
 ## 🚀 Description
 
 Integra est une plateforme tout-en-un qui combine gestion de tâches, suivi d'informations importantes (météo, finances, calendrier), et outils de productivité. L’objectif est de rassembler toutes vos ressources au même endroit pour simplifier votre organisation.
