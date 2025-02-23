@@ -1,6 +1,6 @@
 'use strict';
 /* eslint-disable prefer-const */
-export const lightDarkMode = document.querySelector(`#darkLightMode`).addEventListener(`click`, () => {
+document.querySelector(`#darkLightMode`).addEventListener(`click`, () => {
 	const mode = document.querySelector(`#mode`);
 
 	// Variables Light Dark mode CSS
