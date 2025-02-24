@@ -26,34 +26,45 @@
 	<body>
 		<!-- Header -->
 		<header class="container">
-			<div id="headerPage">
-				<a href="./index.html">
-					<div>
-						<i class="fa-solid fa-square-arrow-up-right"></i>
-					</div>
-					<span>Integra</span>
-				</a>
-
+			<div id="headerPage" class="flexSpaceBetZone">
 				<!-- Navigation -->
-				<nav aria-label="Navigation systeme header">
-					<ul>
-						<li><a href="./HTML/home.html">Tâches</a></li>
-						<li><a href="./HTML/maps.html">Maps</a></li>
-						<li><a href="#">Alimentation</a></li>
-						<li><a href="#">Statistiques</a></li>
+				<nav aria-label="Navigation pages">
+					<ul class="flexSpaceBetZone">
+						<li><a href="./HTML/home.html">Personnel</a></li>
+						<li><a href="./HTML/maps.html">Entreprise</a></li>
+						<li><a href="#">Companie</a></li>
 					</ul>
 				</nav>
 
-				<!-- Icons and profile -->
-				<div>
-					<button id="darkLightMode"><i class="fa-solid fa-moon"></i></button>
-					<a href="HTML/search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+				<a class="flexBase" href="./index.html">
 					<div>
-						<img class="profilePicture" src="./IMG/warren-VVEwJJRRHgk-unsplash.jpg" width="64px" alt="Profile img" />
+						<i class="fa-solid fa-square-arrow-up-right"></i>
 					</div>
-				</div>
+					<span class="textLarge">Integra</span>
+				</a>
+
+				<nav aria-label="Navigation user">
+					<ul class="flexSpaceBetZone">
+						<li><a href="./HTML/home.html">Aide</a></li>
+						<li><a href="./HTML/home.html">S'inscrire</a></li>
+						<li><a href="./HTML/maps.html" class="green">Se connecter</a></li>
+					</ul>
+				</nav>
 			</div>
 		</header>
+
+		<!-- Main -->
+		<main class="container">
+			<!-- Section zf / Informations -->
+			<section id="zf">
+					<h1>Réinventez Votre Quotidien Numérique</h1>
+					<p class="secondaryText">La solution tout-en-un qui centralise votre gestion de tâches, votre calendrier, vos notes et bien plus encore.</p>
+					<di class="flexBase">
+						<a href="./HTML/home.html">S'inscrire</a>
+						<a href="./HTML/maps.html" class="green">Se connecter</a>
+					</div>
+			</section>
+
 		<script>
 			window.addEventListener('load', () => {
 				if ('serviceWorker' in navigator) {

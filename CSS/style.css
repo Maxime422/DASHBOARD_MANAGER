@@ -1,39 +1,33 @@
+/* Container */
 .container {
 	width: 1440px;
 	margin: 0 auto;
 }
 
 /* Header */
-#headerPage,
-#footerPage {
+.flexSpaceBetZone {
 	display: flex;
 	justify-content: space-between;
 	gap: var(--gap-medium);
 	align-items: center;
+}
+#headerPage,
+#footerPage {
 	margin: var(--marrgin-top-bottom-medium);
 }
 
 /* Logo */
-#headerPage > a,
-#footerPage > a {
+.flexBase {
 	display: flex;
 	align-items: center;
 	gap: var(--gap-medium);
 }
 
-#headerPage > a > span,
-#footerPage > a > span {
+.textLarge {
 	font-size: var(--text-size-large);
 }
 
-#headerPage ul {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	gap: var(--gap-large);
-}
-
-#headerPage li:hover {
+#headerPage ul a:hover {
 	background-color: var(--color-green);
 	color: var(--color-white-only);
 }
@@ -64,6 +58,7 @@ main {
 #headerPage,
 #asideNav,
 .subSection,
+#zf,
 #footerPage,
 .grid section,
 .grid section article {
@@ -117,10 +112,9 @@ main {
 /* Actions buttons and interactions buttons */
 button,
 input,
-#asideNav a,
+a,
 select,
-textarea,
-#headerPage li {
+textarea {
 	display: flex;
 	box-sizing: border-box;
 	justify-content: center;
@@ -137,7 +131,7 @@ textarea,
 /* Ajouter des border pour tous les boutons saufs les li */
 main button,
 input,
-#asideNav a,
+main a,
 select,
 textarea {
 	border: var(--color-black-2) solid 1px;
@@ -327,6 +321,30 @@ select,
 	color: white;
 }
 
+#zf {
+	padding-top: var(--padding-extra);
+	display: flex;
+	flex-direction: column;
+	height: 85vh;
+	align-items: center;
+	text-align: center;
+	gap: var(--gap-large);
+}
+
+#footerPage {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr auto;
+	align-items: flex-start;
+	justify-items: flex-start;
+	gap: var(--gap-medium);
+}
+
+#footerPage .flexSpaceBetZone {
+	grid-column: 1/5;
+	width: 100%;
+}
+
 /* Media Querie */
 @media (max-width: 1440px) {
 	.container {
@@ -411,6 +429,14 @@ select,
 
 	#headerPage a span {
 		display: block;
+	}
+
+	#footerPage {
+		grid-template-columns: 1fr;
+	}
+
+	#footerPage .flexSpaceBetZone {
+		grid-column: 1;
 	}
 }
 
