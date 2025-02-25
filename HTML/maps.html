@@ -20,6 +20,15 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
+		<!-- Leaflet -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+		crossorigin=""/>
+
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="crossorigin=""></script>
+		
+
+		<!-- Scripts -->
 		<script type="module" src="../JS/utils.js" defer></script>
 		<script type="module" src="../JS/maps-script.js" defer></script>
 	</head>
@@ -126,9 +135,10 @@
 				<!-- SubSections / Weather -->
 				<div class="subSection largeSection">
 					<header>
-						<h2>Horloge</h2>
+						<h2>Maps</h2>
 						<i class="fa-solid fa-clock"></i>
 					</header>
+					<div id="map"></div>
 				</div>
 			</section>
 		</main>
@@ -136,7 +146,7 @@
 		<!-- Footer and Nav -->
 		<footer class="container">
 			<!-- Logo -->
-			<div id="footerPage" class="flexSpaceBetZone">
+			<div id="footerPage">
 				<a class="flexBase" href="../index.html">
 					<div>
 						<i class="fa-solid fa-square-arrow-up-right"></i>
@@ -146,7 +156,25 @@
 
 				<!-- Navigation -->
 				<nav aria-label="Navigation Systeme footer">
-					<ul class="flexSpaceBetZone">
+					<ul class="cardHeader">
+						<li><a href="#">Tâches</a></li>
+						<li><a href="#">Maps</a></li>
+						<li><a href="#">Alimentation</a></li>
+						<li><a href="#">Statistiques</a></li>
+					</ul>
+				</nav>
+
+				<nav aria-label="Navigation Systeme footer">
+					<ul class="cardHeader">
+						<li><a href="#">Tâches</a></li>
+						<li><a href="#">Maps</a></li>
+						<li><a href="#">Alimentation</a></li>
+						<li><a href="#">Statistiques</a></li>
+					</ul>
+				</nav>
+
+				<nav aria-label="Navigation Systeme footer">
+					<ul class="cardHeader">
 						<li><a href="#">Tâches</a></li>
 						<li><a href="#">Maps</a></li>
 						<li><a href="#">Alimentation</a></li>
@@ -161,7 +189,7 @@
 						<span>© 2025 Integra</span>
 					</a>
 					<button>Français (FR)</button>
-					<div class="flexSpaceBetZone">
+					<div class="flexBase">
 						<a href="www.linkedin.com/in/maxime-germis"><i class="fa-brands fa-linkedin"></i></a>
 						<a href="https://www.instagram.com/maxime19393/"><i class="fa-brands fa-square-instagram"></i></a>
 						<a href="https://github.com/Maxime422"><i class="fa-brands fa-github"></i></a>

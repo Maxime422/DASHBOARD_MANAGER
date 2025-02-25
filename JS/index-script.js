@@ -241,7 +241,7 @@ function days() {
 setInterval(days, 24 * 60 * 60 * 1000);
 
 // Get Lat and Long
-function getLocalisation() {
+export function getLocalisation() {
 	navigator.geolocation.getCurrentPosition(
 		(position) => {
 			let latitude = position.coords.latitude;
