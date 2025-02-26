@@ -1,21 +1,15 @@
 'use strict';
 /* eslint-disable prefer-const */
-// Dark Light Mode Toggle
 
-// Fuction create Icons
-function createIcon() {
-	let icon = document.createElement('i');
-	icon.classList.add('fa-solid', 'fa-circle-info');
-	return icon;
-}
+import {getData, getLocalisation, createIcon} from './functions.js';
 
-// Form Request
+/************** Form Request **************/
 document.querySelector(`form`).addEventListener(`submit`, (event) => {
 	event.preventDefault();
 	categoriesManagement();
 });
 
-// Categories
+/************** Category selection **************/
 function categoriesManagement() {
 	try {
 		let categories = document.querySelector(`#categories`).value;
@@ -40,31 +34,29 @@ function categoriesManagement() {
 	}
 }
 
-// NewTasks
+/************** New Tasks **************/
 function NewTasks(sectionCategory) {
 	try {
-		// Appelle de fonction createTags
 		let tags = createTags();
 
 		// Récupération et création des informations de l'article
 		let title = Object.assign(document.createElement('h3'), {textContent: document.querySelector('#title').value});
 		let date = Object.assign(document.createElement('span'), {textContent: document.querySelector('#addDate').value});
 		let description = Object.assign(document.createElement('p'), {textContent: document.querySelector('#description').value});
-		console.log(description, date, title);
 
-		let button1 = document.createElement('button');
-		button1.type = 'button';
-		button1.append(createIcon());
+		let editBtn = document.createElement('button');
+		editBtn.type = 'button';
+		editBtn.append(createIcon(`edit`));
 
-		let button2 = document.createElement('button');
-		button2.type = 'button';
-		button2.append(createIcon());
+		let deleteBtn = document.createElement('button');
+		deleteBtn.type = 'button';
+		deleteBtn.append(createIcon(`delete`));
 
 		let divActions = document.createElement('div');
-		divActions.append(button1, button2);
+		divActions.append(editBtn, deleteBtn);
 
 		let divTitle = document.createElement('div');
-		divTitle.append(createIcon(), title);
+		divTitle.append(createIcon(`infos`), title);
 
 		let header = document.createElement('header');
 		header.append(divTitle, divActions);
@@ -204,103 +196,46 @@ nextBtn.addEventListener('click', () => {
 });
 updateCalendar();
 
-// Clock
-time();
-
-function time() {
-	const date = new Date();
-	const hours = String(date.getHours()).padStart(2, '0');
-	const mins = String(date.getMinutes()).padStart(2, '0');
-	const second = String(date.getSeconds()).padStart(2, '0');
-
-	let time = document.querySelector(`.tempTime`);
-	time.textContent = `${hours}:${mins}:${second}`;
-}
-
-setInterval(time, 1000);
-
-// Days
-days();
-function days() {
-	const date = new Date();
-	let dateLocal = date.toLocaleDateString(`fr-Fr`, {
-		day: `numeric`,
-		month: `long`,
-		year: `numeric`,
-	});
-	let weekday = date.toLocaleDateString(`fr-Fr`, {
-		weekday: `long`,
-	});
-
-	let dateUpdate = document.querySelector(`#date`);
-	dateUpdate.textContent = dateLocal;
-
-	let weekdayUpdate = document.querySelector(`#weekday`);
-	weekdayUpdate.textContent = weekday;
-}
-setInterval(days, 24 * 60 * 60 * 1000);
-
-// Get Lat and Long
-export function getLocalisation() {
-	navigator.geolocation.getCurrentPosition(
-		(position) => {
-			let latitude = position.coords.latitude;
-			let longitude = position.coords.longitude;
-			console.log(latitude, longitude);
-			Locate(latitude, longitude);
-			Weather(latitude, longitude);
-		},
-		(erreur) => {
-			console.error('Géolocalisation non accessible :', erreur);
-			document.querySelector(`#country`).textContent = `Localisation inaccessible`;
-		},
-	);
-}
-getLocalisation();
-
-// Locate
-async function Locate(latitude, longitude) {
-	const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
+/************** Locate **************/
+async function getLocate() {
 	try {
-		const response = await fetch(url);
-		console.log(url);
-		if (!response.ok) {
-			throw new Error(`Response status: ${response.status}`);
-		}
-		const jsonLocalte = await response.json();
-		updatePosition(jsonLocalte, null);
+		const [latitude, longitude] = await getLocalisation();
+		const data = await getData(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`);
+		updatePosition(data);
+		console.log(data);
 	} catch (error) {
-		console.error(error.message);
+		console.error('Erreur lors de la récupération de la localisation :', error);
+	}
+}
+getLocate();
+
+/************** Update Locate **************/
+function updatePosition(data) {
+	if (data) {
+		document.querySelector(`#country`).textContent = `${data.address.country}, ${data.address.country_code}`;
+		document.querySelector(`#city`).textContent = `${data.address.municipality}, ${data.address.postcode}`;
 	}
 }
 
-// Weather
-async function Weather(latitude, longitude) {
-	const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=c8e87e8006e651c90643bfc35c5ebeae&units=Metric&lang=fr`;
+/************** Temperature **************/
+async function getTemp() {
 	try {
-		const response = await fetch(url);
-		console.log(url);
-		if (!response.ok) {
-			throw new Error(`Response status: ${response.status}`);
-		}
-		const jsonWeather = await response.json();
-		console.log(jsonWeather);
-		updatePosition(null, jsonWeather);
+		const [latitude, longitude] = await getLocalisation();
+		const data = await getData(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=c8e87e8006e651c90643bfc35c5ebeae&units=Metric&lang=fr`);
+		updateTemp(data);
 	} catch (error) {
-		console.error(error.message);
+		console.error('Erreur lors de récupération des données météo :', error);
 	}
 }
+getTemp();
 
-function updatePosition(jsonLocalte, jsonWeather) {
-	if (jsonLocalte) {
-		document.querySelector(`#country`).textContent = `${jsonLocalte.address.country}, ${jsonLocalte.address.country_code}`;
-		document.querySelector(`#city`).textContent = `${jsonLocalte.address.municipality}, ${jsonLocalte.address.postcode}`;
-	}
-	if (jsonWeather) {
-		document.querySelector(`#humidityWeather`).textContent = `humidité : ${jsonWeather.main.humidity}%`;
-		document.querySelector(`#statutWeather`).textContent = `${jsonWeather.weather[0].description}`;
+/************** Update Temperature **************/
+function updateTemp(data) {
+	if (data) {
+		document.querySelector(`#humidityWeather`).textContent = `humidité : ${data.main.humidity}%`;
+		document.querySelector(`#statutWeather`).textContent = `${data.weather[0].description}`;
 
-		let tempString = jsonWeather.main.temp.toString();
+		let tempString = data.main.temp.toString();
 		let resultat = tempString.includes('.') ? tempString.split('.')[0] : tempString.slice(0, 2);
 		document.querySelector(`#tempWeather`).textContent = `${resultat}°c`;
 
