@@ -1,5 +1,4 @@
-# Integra Dashboard – La gestion simplifiée
-(en cours)
+# Integra Dashboard – La gestion simplifiée (en cours)
 
 ## 🚀 Description
 
