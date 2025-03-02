@@ -43,7 +43,7 @@ function createIcon(type) {
 /************** Date **************/
 function getDays() {
 	const date = new Date();
-	let dateLocal = date.toLocaleDateString(`fr-Fr`, {
+	let dateLocal = date.toLocaleDateString(`fr-FR`, {
 		day: `numeric`,
 		month: `long`,
 		year: `numeric`,
