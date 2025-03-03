@@ -77,7 +77,7 @@ setInterval(getTime, 1000);
 /************** Get Localisation **************/
 function getLocalisation() {
 	return new Promise((resolve, reject) => {
-		navigator.geolocation.getCurrentPosition(
+		navigator.geolocation.watchPosition(
 			(position) => {
 				let latitude = position.coords.latitude;
 				let longitude = position.coords.longitude;

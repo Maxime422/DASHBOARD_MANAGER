@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Integra Dashboard – La gestion simplifiée</title>
+
+		<meta name="description" content="Integra est une plateforme tout-en-un qui combine gestion de tâches, suivi d'informations importantes (météo, finances, calendrier), et outils de productivité. L’objectif est de rassembler toutes vos ressources au même endroit pour simplifier votre organisation." />
+		<meta name="author" content="Maxime Germis" />
+
+		<link rel="icon" type="image/png" sizes="76x76" href="../IMG/LOGO_INTEGRA_256.png" />
+
+		<link rel="stylesheet" href="../CSS/variables.css" />
+		<link rel="stylesheet" href="../CSS/style.css" />
+		<link id="mode" rel="stylesheet" href="../CSS/dark-mode.css" />
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+		<!-- Leaflet -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+	</head>
+
+	<body>
+		<!-- Header -->
+		<header class="container">
+			<div id="headerPage" class="flexSpaceBetZone">
+				<a class="flexBase" href="../index.html">
+					<div>
+						<i class="fa-solid fa-square-arrow-up-right"></i>
+					</div>
+					<span class="textLarge">Integra</span>
+				</a>
+
+				<!-- Navigation -->
+				<nav aria-label="Navigation Systeme header">
+					<ul class="flexSpaceBetZone">
+						<li><a href="#">Tâches</a></li>
+						<li><a href="../HTML/maps.html">Maps</a></li>
+						<li><a href="../HTML/alimentation.html">Alimentation</a></li>
+						<li><a href="#">Statistiques</a></li>
+					</ul>
+				</nav>
+
+				<!-- Icons and profile -->
+				<div>
+					<button id="darkLightMode"><i class="fa-solid fa-moon"></i></button>
+					<a href="../HTML/search.html"><i class="fa-solid fa-magnifying-glass"></i></a>
+					<div>
+						<img class="profilePicture" src="../IMG/warren-VVEwJJRRHgk-unsplash.jpg" width="64px" alt="Profile img" />
+					</div>
+				</div>
+			</div>
+		</header>
+
+        <!-- main -->
+		<main class="container">
+			<!-- Section zf / Informations -->
+			<section id="sectionPrimary">
+				<!-- Aside Nav -->
+				<aside id="asideNav">
+					<header>
+						<span class="secondaryText">Bonjour,</span>
+						<h1>Maxime</h1>
+						<span class="secondaryText">citation du jour</span>
+						<p>citation random, Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					</header>
+					<nav aria-label="Navigation pages">
+						<ul>
+							<li>
+								<a href="../HTML/home.html">
+									<i class="fa-solid fa-layer-group"></i>
+									<span>Dashboard</span>
+								</a>
+							</li>
+							<li>
+								<a href="../HTML/calendrier.html">
+									<i class="fa-solid fa-calendar-days"></i>
+									<span>Calendrier</span>
+								</a>
+							</li>
+							<li>
+								<a href="../HTML/maps.html">
+									<i class="fa-solid fa-compass"></i>
+									<span>Maps</span>
+								</a>
+							</li>
+							<li>
+								<a href="../HTML/statistiques.html">
+									<i class="fa-solid fa-chart-simple"></i>
+									<span>Statistiques</span>
+								</a>
+							</li>
+							<li>
+								<a href="../HTML/alimentation.html" class="green">
+									<i class="fa-solid fa-mortar-pestle"></i>
+									<span>Alimentation</span>
+								</a>
+							</li>
+							<li>
+								<a href="../HTML/taches.html">
+									<i class="fa-solid fa-list-check"></i>
+									<span>Tâches</span>
+								</a>
+							</li>
+							<li>
+								<a href="../HTML/">
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Dashboard</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="../HTML/">
+									<i class="fa-solid fa-circle-info"></i>
+									<span>Ajouter une page</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</aside>
+
+				<!-- SubSections / Weather -->
+				<div class="subSection largeSection">
+					<header>
+						<h2>Maps</h2>
+						<i class="fa-solid fa-clock"></i>
+					</header>
+					<div id="map"></div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer and Nav -->
+		<footer class="container">
+			<!-- Logo -->
+			<div id="footerPage">
+				<a class="flexBase" href="../index.html">
+					<div>
+						<i class="fa-solid fa-square-arrow-up-right"></i>
+					</div>
+					<span class="textLarge">Integra</span>
+				</a>
+
+				<!-- Navigation -->
+				<nav aria-label="Navigation Systeme footer">
+					<ul class="cardHeader">
+						<li><a href="#">Tâches</a></li>
+						<li><a href="#">Maps</a></li>
+						<li><a href="#">Alimentation</a></li>
+						<li><a href="#">Statistiques</a></li>
+					</ul>
+				</nav>
+
+				<nav aria-label="Navigation Systeme footer">
+					<ul class="cardHeader">
+						<li><a href="#">Tâches</a></li>
+						<li><a href="#">Maps</a></li>
+						<li><a href="#">Alimentation</a></li>
+						<li><a href="#">Statistiques</a></li>
+					</ul>
+				</nav>
+
+				<nav aria-label="Navigation Systeme footer">
+					<ul class="cardHeader">
+						<li><a href="#">Tâches</a></li>
+						<li><a href="#">Maps</a></li>
+						<li><a href="#">Alimentation</a></li>
+						<li><a href="#">Statistiques</a></li>
+					</ul>
+				</nav>
+
+				<!-- Terms and conditions -->
+
+				<div class="flexSpaceBetZone">
+					<a href="#">
+						<span>© 2025 Integra</span>
+					</a>
+					<button>Français (FR)</button>
+					<div class="flexBase">
+						<a href="www.linkedin.com/in/maxime-germis"><i class="fa-brands fa-linkedin"></i></a>
+						<a href="https://www.instagram.com/maxime19393/"><i class="fa-brands fa-square-instagram"></i></a>
+						<a href="https://github.com/Maxime422"><i class="fa-brands fa-github"></i></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Scripts -->
+		<script type="module" src="../JS/functions.js"></script>
+		<script>
+			window.addEventListener('load', () => {
+				if ('serviceWorker' in navigator) {
+					navigator.serviceWorker.register('../service-worker.js');
+				}
+			});
+		</script>
+	</body>
+</html>

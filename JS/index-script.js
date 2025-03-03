@@ -72,7 +72,8 @@ function NewTasks(sectionCategory) {
 			divStatuts.append(button);
 		}
 		// Condition Tags != null
-		let article = document.createElement('article');
+		let article = (document.createElement('article').setAttribute = "draggable = 'true'");
+		article.classList.add = "box", "drag";
 
 		article.append(header, description, date, divStatuts);
 
