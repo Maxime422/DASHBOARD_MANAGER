@@ -19,7 +19,7 @@
 	"homepage": "https://github.com/Maxime422/DASHBOARD_MANAGER#readme",
 	"dependencies": {
 		"express": "^5.1.0",
-		"lodash": "^4.17.23",
+		"lodash": "^4.18.1",
 		"moment": "^2.30.1"
 	},
 	"devDependencies": {
